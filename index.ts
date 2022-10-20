@@ -1,3 +1,3 @@
-import { helloWorld } from "./src/hello-world";
+import addElevation from "./src/add-elevation";
 
-console.log(helloWorld);
+export default addElevation.add;
