@@ -1,4 +1,4 @@
-import { Config } from "./create-config";
+import { Config } from "./config/create-config";
 
 export type Rules = {
   [key: string]: {

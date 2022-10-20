@@ -1,6 +1,6 @@
 import addElevation, { PluginAPI } from "./add-elevation";
 import addRules from "./add-rules";
-import createConfig, { Config } from "./create-config";
+import createConfig, { Config } from "./config/create-config";
 import createRules, { Rules } from "./create-rules";
 
 test("adds elevation utilities", () => {

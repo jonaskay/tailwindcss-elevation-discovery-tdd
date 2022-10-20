@@ -1,5 +1,5 @@
 import addRules from "./add-rules";
-import createConfig from "./create-config";
+import createConfig from "./config/create-config";
 import createRules from "./create-rules";
 
 export type PluginAPI = {};
