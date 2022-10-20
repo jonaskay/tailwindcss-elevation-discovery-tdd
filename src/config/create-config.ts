@@ -1,4 +1,4 @@
-import { PluginAPI } from "../add-elevation";
+import { PluginAPIWrapperObject } from "../plugin-api-wrapper";
 import convertColors from "./convert-colors";
 import fetchConfigData from "./fetch-config-data";
 import validateConfig from "./validate-config";
@@ -21,8 +21,8 @@ export type Config = {
   opacityBoost: number;
 };
 
-function create(pluginAPI: PluginAPI): Config {
-  const configData = fetchConfigData.fetch(pluginAPI);
+function create(pluginAPIWrapper: PluginAPIWrapperObject): Config {
+  const configData = fetchConfigData.fetch(pluginAPIWrapper);
   const config = convertColors.convert(configData);
   validateConfig.validate(config);
 

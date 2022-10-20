@@ -1,10 +1,11 @@
+import { PluginAPIWrapperObject } from "../plugin-api-wrapper";
 import convertColors from "./convert-colors";
 import createConfig, { Config } from "./create-config";
 import fetchConfigData, { ConfigData } from "./fetch-config-data";
 import validateConfig from "./validate-config";
 
 test("creates config object", () => {
-  const pluginAPI = {};
+  const pluginAPIWrapper = jest.fn() as unknown as PluginAPIWrapperObject;
   const configData: ConfigData = {
     classSelectorPrefix: "foo",
     colors: {
@@ -32,9 +33,9 @@ test("creates config object", () => {
 
   validateConfig.validate = jest.fn();
 
-  const result = createConfig.create(pluginAPI);
+  const result = createConfig.create(pluginAPIWrapper);
 
-  expect(fetchConfigData.fetch).toHaveBeenCalledWith(pluginAPI);
+  expect(fetchConfigData.fetch).toHaveBeenCalledWith(pluginAPIWrapper);
   expect(convertColors.convert).toHaveBeenCalledWith(configData);
   expect(validateConfig.validate).toHaveBeenCalledWith(config);
   expect(result).toEqual(config);

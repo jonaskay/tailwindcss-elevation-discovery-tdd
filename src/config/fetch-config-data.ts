@@ -1,4 +1,4 @@
-import { PluginAPI } from "../add-elevation";
+import { PluginAPIWrapperObject } from "../plugin-api-wrapper";
 import { Config, RGBTriplet } from "./create-config";
 
 export type ConfigData = Omit<Omit<Config, "defaultColor">, "colors"> & {
@@ -13,7 +13,7 @@ export type ConfigData = Omit<Omit<Config, "defaultColor">, "colors"> & {
   defaultColor: string | RGBTriplet;
 };
 
-function fetch(pluginAPI: PluginAPI): ConfigData {}
+function fetch(pluginAPIWrapper: PluginAPIWrapperObject): ConfigData {}
 
 export default {
   fetch,

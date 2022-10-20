@@ -1,10 +1,9 @@
 import addRules from "./add-rules";
 import createConfig from "./config/create-config";
 import createRules from "./create-rules";
+import { PluginAPIWrapperObject } from "./plugin-api-wrapper";
 
-export type PluginAPI = {};
-
-function add(pluginAPI: PluginAPI) {
+function add(pluginAPI: PluginAPIWrapperObject) {
   const config = createConfig.create(pluginAPI);
   const rules = createRules.create(config);
   addRules.add(rules);

@@ -1,10 +1,11 @@
-import addElevation, { PluginAPI } from "./add-elevation";
+import addElevation from "./add-elevation";
 import addRules from "./add-rules";
 import createConfig, { Config } from "./config/create-config";
 import createRules, { Rules } from "./create-rules";
+import { PluginAPIWrapperObject } from "./plugin-api-wrapper";
 
 test("adds elevation utilities", () => {
-  const pluginAPI: PluginAPI = {};
+  const pluginAPIWrapper = jest.fn() as unknown as PluginAPIWrapperObject;
   const config: Config = {
     classSelectorPrefix: "foo",
     colors: {
@@ -28,9 +29,9 @@ test("adds elevation utilities", () => {
 
   addRules.add = jest.fn();
 
-  addElevation.add(pluginAPI);
+  addElevation.add(pluginAPIWrapper);
 
-  expect(createConfig.create).toHaveBeenCalledWith(pluginAPI);
+  expect(createConfig.create).toHaveBeenCalledWith(pluginAPIWrapper);
   expect(createRules.create).toHaveBeenCalledWith(config);
   expect(addRules.add).toHaveBeenCalledWith(rules);
 });
