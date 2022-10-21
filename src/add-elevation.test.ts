@@ -33,5 +33,5 @@ test("adds elevation utilities", () => {
 
   expect(createConfig.create).toHaveBeenCalledWith(pluginAPIWrapper);
   expect(createRules.create).toHaveBeenCalledWith(config);
-  expect(addRules.add).toHaveBeenCalledWith(rules);
+  expect(addRules.add).toHaveBeenCalledWith(rules, pluginAPIWrapper);
 });

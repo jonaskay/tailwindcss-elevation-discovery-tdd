@@ -6,7 +6,7 @@ import { PluginAPIWrapperObject } from "./plugin-api-wrapper";
 function add(pluginAPI: PluginAPIWrapperObject) {
   const config = createConfig.create(pluginAPI);
   const rules = createRules.create(config);
-  addRules.add(rules);
+  addRules.add(rules, pluginAPI);
 }
 
 export default {
